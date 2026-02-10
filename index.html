@@ -8523,7 +8523,13 @@
             if (!container) return;
             container.innerHTML = '';
 
-            for (let i = 1; i <= Math.min(totalDays, 3); i++) {
+            const allBtn = document.createElement('button');
+            allBtn.className = 'day-btn' + (currentDay === 0 ? ' active' : '');
+            allBtn.textContent = '전체';
+            allBtn.onclick = () => selectDay(0);
+            container.appendChild(allBtn);
+
+            for (let i = 1; i <= totalDays; i++) {
                 const btn = document.createElement('button');
                 btn.className = 'day-btn' + (currentDay === i ? ' active' : '');
                 btn.textContent = 'Day ' + i;
